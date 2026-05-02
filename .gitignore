@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated assets (not needed in repo)
+/*.mp4
+/laptop-*.png
+/resp-*.json
+/preview.html
+/public/laptop-closing.mp4
