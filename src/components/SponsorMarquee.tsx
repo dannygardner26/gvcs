@@ -3,10 +3,10 @@
 import { motion } from "framer-motion";
 
 const sponsors = [
-  { name: "SIG", logo: "/sponsors/sig.svg" },
-  { name: "Microsoft", logo: "/sponsors/microsoft.svg" },
-  { name: "Chickie's & Pete's", logo: "/sponsors/chickies.png" },
-  { name: "Great Valley", logo: "/sponsors/gv.png" },
+  { name: "SIG", logo: "/sponsors/sig.svg", showName: false },
+  { name: "Microsoft", logo: "/sponsors/microsoft.svg", showName: false },
+  { name: "Chickie's & Pete's", logo: "/sponsors/chickies.png", showName: true },
+  { name: "Great Valley", logo: "/sponsors/gv.png", showName: true },
 ];
 
 // Double the array for seamless loop
@@ -47,9 +47,11 @@ export function SponsorMarquee() {
                 alt={sponsor.name}
                 className="h-8 w-auto object-contain"
               />
-              <span className="font-heading font-semibold text-foreground text-sm whitespace-nowrap">
-                {sponsor.name}
-              </span>
+              {sponsor.showName && (
+                <span className="font-heading font-semibold text-foreground text-sm whitespace-nowrap">
+                  {sponsor.name}
+                </span>
+              )}
             </div>
           ))}
         </motion.div>
