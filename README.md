@@ -41,6 +41,14 @@ public/
   sponsors/          # Sponsor logo files (SVG + PNG)
 ```
 
+## Architecture
+
+![GVCS Architecture](public/architecture.svg)
+
+The main site is the **hub** — it handles authentication and provides an API. Everything else (contest platform, event registration, email, etc.) is a **leaf node** that connects via API calls. Your code never depends on another contributor's code.
+
+See [ARCHITECTURE.md](ARCHITECTURE.md) for the full breakdown.
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide. The short version:
