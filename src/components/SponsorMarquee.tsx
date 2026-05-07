@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 const sponsors = [
   { name: "SIG", logo: "/sponsors/sig.svg" },
   { name: "Microsoft", logo: "/sponsors/microsoft.svg" },
-  { name: "Chickie's & Pete's", logo: "/sponsors/chickies.svg" },
-  { name: "Great Valley", logo: "/sponsors/gv.svg" },
+  { name: "Chickie's & Pete's", logo: "/sponsors/chickies.png" },
+  { name: "Great Valley", logo: "/sponsors/gv.png" },
 ];
 
 // Double the array for seamless loop
