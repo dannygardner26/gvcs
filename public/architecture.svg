@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" fill="none">
+  <defs>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.08"/>
+    </filter>
+    <linearGradient id="grad-core" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E4D8C"/>
+      <stop offset="100%" style="stop-color:#2A6BC4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="680" rx="16" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="450" y="44" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="#1A1A2E">How GVCS Code Works</text>
+  <text x="450" y="68" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#64748B">Every service is a leaf node. One hub. No cross-dependencies.</text>
+
+  <!-- Core Hub -->
+  <rect x="300" y="100" width="300" height="140" rx="16" fill="url(#grad-core)" filter="url(#shadow)"/>
+  <text x="450" y="145" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="white">GVCS Main Site</text>
+  <text x="450" y="168" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.85)">greatvalleycs/gvcs</text>
+  <text x="450" y="195" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.7)">Authentication | User Profiles | API Gateway</text>
+  <text x="450" y="215" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.7)">Public Pages | Event Data</text>
+
+  <!-- Connection lines -->
+  <line x1="370" y1="240" x2="130" y2="330" stroke="#1E4D8C" stroke-width="2" stroke-dasharray="6,4" opacity="0.4"/>
+  <line x1="420" y1="240" x2="330" y2="330" stroke="#1E4D8C" stroke-width="2" stroke-dasharray="6,4" opacity="0.4"/>
+  <line x1="480" y1="240" x2="530" y2="330" stroke="#1E4D8C" stroke-width="2" stroke-dasharray="6,4" opacity="0.4"/>
+  <line x1="530" y1="240" x2="730" y2="330" stroke="#1E4D8C" stroke-width="2" stroke-dasharray="6,4" opacity="0.4"/>
+
+  <!-- API call labels on lines -->
+  <text x="230" y="285" text-anchor="middle" font-family="monospace" font-size="9" fill="#1E4D8C" opacity="0.7">API calls</text>
+  <text x="370" y="295" text-anchor="middle" font-family="monospace" font-size="9" fill="#1E4D8C" opacity="0.7">API calls</text>
+  <text x="520" y="295" text-anchor="middle" font-family="monospace" font-size="9" fill="#1E4D8C" opacity="0.7">API calls</text>
+  <text x="650" y="285" text-anchor="middle" font-family="monospace" font-size="9" fill="#1E4D8C" opacity="0.7">API calls</text>
+
+  <!-- Leaf Node 1: Comp Prog -->
+  <rect x="30" y="330" width="200" height="110" rx="12" fill="white" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="60" cy="360" r="14" fill="#EBF2FA"/>
+  <text x="60" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14">🏆</text>
+  <text x="85" y="365" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1A1A2E">Comp Prog Platform</text>
+  <text x="130" y="385" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748B">Run coding contests</text>
+  <text x="130" y="400" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748B">Live judging + leaderboard</text>
+  <text x="130" y="422" text-anchor="middle" font-family="monospace" font-size="9" fill="#1E4D8C">greatvalleycs/comp-prog</text>
+
+  <!-- Leaf Node 2: Event Reg -->
+  <rect x="250" y="330" width="200" height="110" rx="12" fill="white" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="280" cy="360" r="14" fill="#EBF2FA"/>
+  <text x="280" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14">📋</text>
+  <text x="305" y="365" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1A1A2E">Event Registration</text>
+  <text x="350" y="385" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748B">Sign up for events</text>
+  <text x="350" y="400" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748B">Capacity + waitlists</text>
+  <text x="350" y="422" text-anchor="middle" font-family="monospace" font-size="9" fill="#1E4D8C">greatvalleycs/event-reg</text>
+
+  <!-- Leaf Node 3: Email -->
+  <rect x="470" y="330" width="200" height="110" rx="12" fill="white" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="500" cy="360" r="14" fill="#EBF2FA"/>
+  <text x="500" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14">📧</text>
+  <text x="525" y="365" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1A1A2E">Email Service</text>
+  <text x="570" y="385" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748B">Mailing list + notifications</text>
+  <text x="570" y="400" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748B">Event reminders</text>
+  <text x="570" y="422" text-anchor="middle" font-family="monospace" font-size="9" fill="#1E4D8C">greatvalleycs/email-service</text>
+
+  <!-- Leaf Node 4: Hackathon -->
+  <rect x="690" y="330" width="200" height="110" rx="12" fill="white" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="720" cy="360" r="14" fill="#EBF2FA"/>
+  <text x="720" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14">💻</text>
+  <text x="745" y="365" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1A1A2E">Hackathon Subs</text>
+  <text x="790" y="385" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748B">Project submissions</text>
+  <text x="790" y="400" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748B">DevPost or custom</text>
+  <text x="790" y="422" text-anchor="middle" font-family="monospace" font-size="9" fill="#1E4D8C">greatvalleycs/hackathon</text>
+
+  <!-- Key principle box -->
+  <rect x="50" y="475" width="800" height="60" rx="10" fill="#EBF2FA" stroke="rgba(30,77,140,0.2)" stroke-width="1"/>
+  <text x="450" y="500" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1E4D8C">Your code is a leaf node — it connects to the hub, never to other leaves.</text>
+  <text x="450" y="520" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#64748B">If your service breaks, nothing else goes down. If someone else's breaks, yours keeps working.</text>
+
+  <!-- PR workflow section -->
+  <rect x="50" y="560" width="800" height="100" rx="10" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="450" y="585" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#1A1A2E">How to Contribute (Pull Request Workflow)</text>
+
+  <!-- PR flow arrows -->
+  <rect x="80" y="605" width="130" height="36" rx="8" fill="#EBF2FA" stroke="rgba(30,77,140,0.2)" stroke-width="1"/>
+  <text x="145" y="627" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1E4D8C">1. Fork + Branch</text>
+
+  <text x="225" y="627" font-family="system-ui, sans-serif" font-size="16" fill="#64748B">→</text>
+
+  <rect x="245" y="605" width="130" height="36" rx="8" fill="#EBF2FA" stroke="rgba(30,77,140,0.2)" stroke-width="1"/>
+  <text x="310" y="627" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1E4D8C">2. Make Changes</text>
+
+  <text x="390" y="627" font-family="system-ui, sans-serif" font-size="16" fill="#64748B">→</text>
+
+  <rect x="410" y="605" width="130" height="36" rx="8" fill="#EBF2FA" stroke="rgba(30,77,140,0.2)" stroke-width="1"/>
+  <text x="475" y="627" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1E4D8C">3. PR into dev</text>
+
+  <text x="555" y="627" font-family="system-ui, sans-serif" font-size="16" fill="#64748B">→</text>
+
+  <rect x="575" y="605" width="130" height="36" rx="8" fill="#EBF2FA" stroke="rgba(30,77,140,0.2)" stroke-width="1"/>
+  <text x="640" y="627" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1E4D8C">4. Review + Merge</text>
+
+  <text x="720" y="627" font-family="system-ui, sans-serif" font-size="16" fill="#64748B">→</text>
+
+  <rect x="740" y="605" width="90" height="36" rx="8" fill="url(#grad-core)"/>
+  <text x="785" y="627" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="white">5. Live! 🚀</text>
+
+  <text x="450" y="658" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748B">A PR (Pull Request) = "Hey, I made changes — please review and merge them into the project."</text>
+</svg>
