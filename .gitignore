@@ -46,3 +46,6 @@ next-env.d.ts
 /resp-*.json
 /preview.html
 /public/laptop-closing.mp4
+
+.vercel
+.env*.local
