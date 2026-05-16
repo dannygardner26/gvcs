@@ -47,6 +47,10 @@ next-env.d.ts
 /preview.html
 /public/laptop-closing.mp4
 
+# Prisma
+prisma/*.db
+prisma/*.db-journal
+
 # Python backend
 __pycache__/
 *.py[cod]

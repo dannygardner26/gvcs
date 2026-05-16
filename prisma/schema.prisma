@@ -1,0 +1,117 @@
+// Prisma schema for GVCS Club website
+// Docs: https://pris.ly/d/prisma-schema
+//
+// After editing this file run:
+//   npx prisma generate   → regenerates the Prisma Client types
+//   npx prisma db push    → syncs schema to the database (dev only)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ---------------------------------------------------------------------------
+// Enums
+// ---------------------------------------------------------------------------
+
+// Controls what a user can do on the site.
+// ADMIN  → can edit site content, manage posts, manage club codes
+// MEMBER → verified club member (redeemed a ClubCode)
+// GUEST  → signed in with Google but hasn't redeemed a code yet
+enum Role {
+  ADMIN
+  MEMBER
+  GUEST
+}
+
+// Drives how the frontend renders and filters post cards.
+enum PostType {
+  MEETING
+  EVENT
+  VOLUNTEER
+}
+
+// ---------------------------------------------------------------------------
+// Models
+// ---------------------------------------------------------------------------
+
+// Represents anyone who signs in with Google OAuth.
+// googleId is null until Phase 2 OAuth is implemented.
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  googleId  String?  @unique // Populated in Phase 2
+  role      Role     @default(MEMBER)
+  createdAt DateTime @default(now())
+
+  posts       Post[]
+  clubAccess  UserClubAccess[]
+}
+
+// A membership code distributed to students each school year.
+// Students redeem a code to become MEMBER role (implemented in Phase 2).
+// Only one code should be active at a time.
+model ClubCode {
+  id        String   @id @default(cuid())
+  code      String   @unique // e.g. "FALL2026"
+  year      String            // e.g. "2026-2027"
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  userAccess UserClubAccess[]
+}
+
+// Join table recording which users redeemed which club codes.
+// Lets us track membership per year without duplicating user data.
+model UserClubAccess {
+  id          String   @id @default(cuid())
+  userId      String
+  clubCodeId  String
+  joinedAt    DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  clubCode  ClubCode @relation(fields: [clubCodeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, clubCodeId]) // A user can only redeem a given code once
+}
+
+// A club post — meeting recap, upcoming event, or volunteer opportunity.
+// eventDate is optional; set it for events/volunteer posts with a fixed date.
+model Post {
+  id        String    @id @default(cuid())
+  title     String
+  content   String
+  postType  PostType
+  eventDate DateTime?
+  createdAt DateTime  @default(now())
+  authorId  String
+
+  author User @relation(fields: [authorId], references: [id], onDelete: Cascade)
+}
+
+// Key-value store for all editable website copy.
+// Lets admins update hero text, meeting times, stats, etc. via API
+// without touching code or redeploying.
+//
+// Examples:
+//   key: "hero_title"      value: "Build the future with code"
+//   key: "meeting_time"    value: "Thursdays at 3:30 PM"
+//   key: "stat_members"    value: "50+"
+//
+// contentType hints to the frontend how to render the value:
+//   "text" → plain string
+//   "html" → render as innerHTML (sanitize on the frontend)
+//   "json" → JSON.parse before use
+model SiteContent {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  value       String
+  contentType String   @default("text")
+  updatedAt   DateTime @updatedAt
+}
