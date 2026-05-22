@@ -45,6 +45,16 @@ export function Navbar() {
               </Link>
             );
           })}
+          <Link
+            href="/flyer"
+            className={`ml-2 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all duration-200 ${
+              pathname === "/flyer"
+                ? "bg-primary text-white"
+                : "bg-primary text-white hover:bg-primary-hover"
+            }`}
+          >
+            Hackathons
+          </Link>
         </div>
       </div>
     </nav>
